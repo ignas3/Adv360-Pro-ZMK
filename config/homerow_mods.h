@@ -3,3 +3,13 @@
 #define THUM_L LH0 LH1 LH2 LH3 LH4 LH5
 #define THUM_R RH0 RH1 RH2 RH3 RH4 RH5
 
+#define A_LGUI &hml LGUI A
+#define S_LALT &hml LALT S
+#define D_LCTRL &hml LCTRL D
+#define F_LSHFT &hml LSHFT F
+
+#define J_RSHFT &hmr RSHFT J
+#define K_RCTRL &hmr RCTRL K
+#define L_RALT &hmr RALT L
+#define SEMI_RGUI &hmr RGUI SEMI
+
