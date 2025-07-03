@@ -9,6 +9,14 @@
 #include "adv360_keypos.h"
 #include "homerow_mods.h"
 
+#define BASE 0
+#define LEFT 1
+
+#define LGUI2 &hml_s LGUI LGUI
+#define LALT2 &hml_s LALT LALT
+#define LCTRL2 &hml_s LCTRL LCTRL
+#define LSHFT2 &hml_s LSHFT LSHFT
+
 / {
     behaviors {
       #include "macros.dtsi"
@@ -45,6 +53,18 @@
           hold-trigger-key-positions = < KEYS_L THUM_L THUM_R >; // List of keys on the left side of the keyboard
           hold-trigger-on-release;
       };
+
+      hml_s: home_row_mod_left_sticky {
+          compatible = "zmk,behavior-hold-tap";
+          #binding-cells = <2>;
+          flavor = "tap-preferred";
+          require-prior-idle-ms = <125>;
+          tapping-term-ms = <200>;
+          quick-tap-ms = <200>;
+          bindings = <&sk>, <&kp>;
+          hold-trigger-key-positions = < KEYS_R THUM_L THUM_R >; // List of keys on the right side of the keyboard
+          hold-trigger-on-release;
+      };
     };
 
   combos {
@@ -53,28 +73,28 @@
     combo_esc {
       bindings = <&kp ESC>;
       key-positions = <LT2 LT3>;
-      layers = <0>;
+      layers = <BASE>;
       timeout-ms = <50>;
     };
 
     combo_tab {
       bindings = <&kp TAB>;
       key-positions = <LB2 LB3>;
-      layers = <0>;
+      layers = <BASE>;
       timeout-ms = <50>;
     };
 
     combo_bspc {
       bindings = <&kp BSPC>;
       key-positions = <RT3 RT4>;
-      layers = <0>;
+      layers = <BASE>;
       timeout-ms = <50>;
     };
 
     combo_ret {
       bindings = <&kp RET>;
       key-positions = <RB2 RB3>;
-      layers = <0>;
+      layers = <BASE>;
       timeout-ms = <50>;
     };
   };
@@ -89,18 +109,28 @@
         &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
         &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
         &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &none    &kp SPACE &kp END  &kp PG_DN &kp LSHFT &none                  &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &mo LEFT &kp SPACE &kp END  &kp PG_DN &kp LSHFT &none                  &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
       >;
     };
-    keypad {
-      display-name = "Kp";
+    left_layer {
+      display-name = "Left";
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
+        &trans    &LGUI2    &LALT2   &LCTRL2  &LSHFT2    &trans &trans          &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
+        &trans    &trans    &trans   &trans   &trans     &trans                           &kp HOME &kp PG_UP                           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
+        &trans    &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
       >;
+    };
+    #keypad {
+    #  display-name = "Kp";
+    #  bindings = <
+    #    &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
+    #    &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
+    #    &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
+    #    &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
+    #    &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
+    #  >;
     };
     fn {
       display-name = "Fn";
