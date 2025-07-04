@@ -73,28 +73,24 @@
     combo_esc {
       bindings = <&kp ESC>;
       key-positions = <LT2 LT3>;
-      layers = <BASE>;
       timeout-ms = <50>;
     };
 
     combo_tab {
       bindings = <&kp TAB>;
       key-positions = <LB2 LB3>;
-      layers = <BASE>;
       timeout-ms = <50>;
     };
 
     combo_bspc {
       bindings = <&kp BSPC>;
       key-positions = <RT3 RT4>;
-      layers = <BASE>;
       timeout-ms = <50>;
     };
 
     combo_ret {
       bindings = <&kp RET>;
       key-positions = <RB2 RB3>;
-      layers = <BASE>;
       timeout-ms = <50>;
     };
   };
