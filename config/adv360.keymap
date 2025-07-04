@@ -10,7 +10,8 @@
 #include "homerow_mods.h"
 
 #define BASE 0
-#define NAVI 1
+#define NUMB 1
+#define NAVI 2
 
 #define LGUI2 &hml_s LGUI LGUI
 #define LALT2 &hml_s LALT LALT
@@ -106,22 +107,42 @@
       bindings = <
         &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
         &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
+        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LGUI  &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
         &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &none    &kp SPACE &kp END  &kp PG_DN &kp LSHFT &mo NAVI               &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &mo NUMB &kp SPACE &kp LCTRL &kp LALT &kp LSHFT &mo NAVI               &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+      >;
+    };
+    numb_layer {
+      display-name = "Number";
+      bindings = <
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &trans    &trans       &trans        &trans          &trans
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &trans    &trans       &trans        &trans          &trans
+        &trans    &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans          &trans    &trans   &trans    &trans              &trans &kp N6 &kp N7    &kp N8       &kp N9        &kp N0          &trans
+        &trans    &trans    &trans   &trans   &trans     &trans                           &trans   &trans                               &trans &trans    &trans       &trans        &trans          &trans
+        &trans    &trans    &trans   &trans   &trans                   &trans   &trans    &trans   &trans    &trans    &trans                  &trans    &trans       &trans        &trans          &trans
       >;
     };
     navi_layer {
       display-name = "Navigation";
       bindings = <
-        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-        &trans    &sk LGUI  &sk LALT &sk LCTRL &sk LSHFT &trans &trans          &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp LEFT &kp DOWN &kp UP       &kp RIGHT     &kp KP_PLUS     &kp SQT
-        &trans    &trans    &trans   &trans   &trans     &trans                           &kp HOME &kp PG_UP                           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-        &trans    &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &trans    &trans       &trans        &trans          &trans
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &trans    &trans       &trans        &trans          &trans
+        &trans    &sk LGUI  &sk LALT &sk LCTRL &sk LSHFT &trans &trans          &trans    &trans   &trans    &trans              &trans &kp LEFT &kp DOWN &kp UP      &kp RIGHT     &trans          &trans
+        &trans    &trans    &trans   &trans   &trans     &trans                           &trans   &trans                               &kp HOME &kp PG_DN &kp PG_UP  &kp END       &trans          &trans
+        &trans    &trans    &trans   &trans   &trans                   &trans   &trans    &trans   &trans    &trans    &trans                  &trans    &trans       &trans        &trans          &trans
       >;
     };
 #if 0
+    dummy_layer {
+      display-name = "Dummy";
+      bindings = <
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &trans    &trans       &trans        &trans          &trans
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &trans    &trans       &trans        &trans          &trans
+        &trans    &trans    &trans   &trans   &trans     &trans &trans          &trans    &trans   &trans    &trans              &trans &trans &trans    &trans       &trans        &trans          &trans
+        &trans    &trans    &trans   &trans   &trans     &trans                           &trans   &trans                               &trans &trans    &trans       &trans        &trans          &trans
+        &trans    &trans    &trans   &trans   &trans                   &trans   &trans    &trans   &trans    &trans    &trans                  &trans    &trans       &trans        &trans          &trans
+      >;
+    };
     keypad {
       display-name = "Kp";
       bindings = <
