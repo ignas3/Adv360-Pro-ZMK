@@ -76,11 +76,13 @@
       timeout-ms = <50>;
     };
 
+#if 0
     combo_tab {
       bindings = <&kp TAB>;
       key-positions = <LB2 LB3>;
       timeout-ms = <50>;
     };
+#endif
 
     combo_bspc {
       bindings = <&kp BSPC>;
@@ -91,6 +93,18 @@
     combo_ret {
       bindings = <&kp RET>;
       key-positions = <RB2 RB3>;
+      timeout-ms = <50>;
+    };
+
+    combo_tab {
+      bindings = <&kp TAB>;
+      key-positions = <LH4 RH4>;
+      timeout-ms = <50>;
+    };
+
+    combo_del {
+      bindings = <&kp DEL>;
+      key-positions = <LH4 RT3 RT4>;
       timeout-ms = <50>;
     };
   };
@@ -112,9 +126,9 @@
       display-name = "Number";
       bindings = <
         &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &trans    &trans       &trans        &trans          &trans
-        &trans    &kp GRAVE &trans   &kp LPAR &kp LBKT   &trans &trans                                                           &trans &trans &kp RBKT  &kp RPAR     &trans        &trans          &trans
-        &trans    &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans          &trans    &trans   &trans    &trans              &trans &kp N6 &kp N7    &kp N8       &kp N9        &kp N0          &kp EQUAL
-        &trans    &kp BSLH  &trans   &kp SQT  &kp MINUS  &trans                           &trans   &trans                               &trans &kp EQUAL &kp ASTRK    &trans        &trans          &trans
+        &trans    &kp GRAVE &none    &kp LPAR &kp LBKT   &none  &trans                                                           &trans &none  &kp RBKT  &kp RPAR     &none         &none           &trans
+        &trans    &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans          &trans    &trans   &trans    &trans              &trans &kp N6 &kp N7    &kp N8       &kp N9        &kp N0          &trans
+        &trans    &kp BSLH  &kp SQT  &kp DQT  &kp MINUS  &none                            &trans   &trans                               &none  &kp EQUAL &kp ASTRK    &none         &kp EQUAL       &trans
         &trans    &trans    &trans   &trans   &trans                   &trans   &trans    &trans   &trans    &trans    &trans                  &trans    &trans       &trans        &trans          &trans
       >;
     };
@@ -122,9 +136,9 @@
       display-name = "Navigation";
       bindings = <
         &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &trans    &trans       &trans        &trans          &trans
-        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &trans    &trans       &trans        &trans          &trans
-        &trans    &sk LGUI  &sk LALT &sk LCTRL &sk LSHFT &trans &trans          &trans    &trans   &trans    &trans              &trans &kp LEFT &kp DOWN &kp UP      &kp RIGHT     &trans          &trans
-        &trans    &trans    &trans   &trans   &trans     &trans                           &trans   &trans                               &kp HOME &kp PG_DN &kp PG_UP  &kp END       &trans          &trans
+        &trans    &none     &none    &none    &none      &none  &trans                                                           &trans &none  &kp INS   &none        &none         &none           &trans
+        &trans    &sk LGUI  &sk LALT &sk LCTRL &sk LSHFT &none  &trans          &trans    &trans   &trans    &trans              &trans &kp LEFT &kp DOWN &kp UP      &kp RIGHT     &none           &trans
+        &trans    &none     &none    &none    &none      &none                            &trans   &trans                               &kp HOME &kp PG_DN &kp PG_UP  &kp END       &none           &trans
         &trans    &trans    &trans   &trans   &trans                   &trans   &trans    &trans   &trans    &trans    &trans                  &trans    &trans       &trans        &trans          &trans
       >;
     };
