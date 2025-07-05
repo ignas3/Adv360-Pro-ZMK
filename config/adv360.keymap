@@ -128,9 +128,9 @@
       display-name = "Number";
       bindings = <
         &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &trans    &trans       &trans        &trans          &trans
-        &trans    &kp GRAVE &kp LBKT &kp LPAR &kp LBRC   &kp SQT &trans                                                           &trans &kp DQT &kp RBRC &kp RPAR    &kp RBKT      &none           &trans
+        &trans    &kp GRAVE &kp LBKT &kp LPAR &kp LBRC   &kp SQT &trans                                                           &trans &kp DQT &kp RBRC &kp RPAR    &kp RBKT      &kp EQUAL       &trans
         &trans    &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans          &trans    &trans   &trans    &trans              &trans &kp N6 &kp N7    &kp N8       &kp N9        &kp N0          &trans
-        &trans    &kp BSLH  &none    &kp PLUS &kp MINUS  &none                            &trans   &trans                               &none  &kp UNDER &kp ASTRK    &none         &kp EQUAL       &trans
+        &trans    &kp BSLH  &none    &none    &kp UNDER	 &none                            &trans   &trans                               &none  &kp MINUS &kp PLUS     &kp ASTRK     &kp FSLH        &trans
         &trans    &trans    &trans   &trans   &trans                   &trans   &trans    &trans   &trans    &trans    &trans                  &trans    &trans       &trans        &trans          &trans
       >;
     };
