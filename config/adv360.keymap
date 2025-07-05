@@ -65,6 +65,20 @@
           hold-trigger-key-positions = < KEYS_R THUM_L THUM_R >; // List of keys on the right side of the keyboard
           hold-trigger-on-release;
       };
+
+      tab: modmorph_tab {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+		bindings = <&kp SPACE>, <&kp TAB>;
+		mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
+
+      del: modmorph_del {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+		bindings = <&kp BSPC>, <&kp DEL>;
+		mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
     };
 
   combos {
@@ -95,18 +109,6 @@
       key-positions = <RB2 RB3>;
       timeout-ms = <50>;
     };
-
-    combo_tab {
-      bindings = <&kp TAB>;
-      key-positions = <LH4 RH4>;
-      timeout-ms = <50>;
-    };
-
-    combo_del {
-      bindings = <&kp DEL>;
-      key-positions = <LH4 RT3 RT4>;
-      timeout-ms = <50>;
-    };
   };
 
   keymap {
@@ -126,9 +128,9 @@
       display-name = "Number";
       bindings = <
         &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &trans    &trans       &trans        &trans          &trans
-        &trans    &kp GRAVE &none    &kp LPAR &kp LBKT   &none  &trans                                                           &trans &none  &kp RBKT  &kp RPAR     &none         &none           &trans
+        &trans    &kp GRAVE &kp LBKT &kp LPAR &kp LBRC   &none  &trans                                                           &trans &none  &kp RBRC  &kp RPAR     &kp RBKT      &none           &trans
         &trans    &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans          &trans    &trans   &trans    &trans              &trans &kp N6 &kp N7    &kp N8       &kp N9        &kp N0          &trans
-        &trans    &kp BSLH  &kp SQT  &kp DQT  &kp MINUS  &none                            &trans   &trans                               &none  &kp EQUAL &kp ASTRK    &none         &kp EQUAL       &trans
+        &trans    &kp BSLH  &kp SQT  &kp DQT  &kp MINUS  &none                            &trans   &trans                               &none  &kp EQUAL &kp ASTRK    &none         &trans          &trans
         &trans    &trans    &trans   &trans   &trans                   &trans   &trans    &trans   &trans    &trans    &trans                  &trans    &trans       &trans        &trans          &trans
       >;
     };
