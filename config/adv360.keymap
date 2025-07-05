@@ -66,14 +66,14 @@
           hold-trigger-on-release;
       };
 
-      tab: modmorph_tab {
+      sptab: space_tab {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
 		bindings = <&kp SPACE>, <&kp TAB>;
 		mods = <(MOD_LSFT | MOD_RSFT)>;
       };
 
-      del: modmorph_del {
+      bsdel: backspace_delete {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
 		bindings = <&kp BSPC>, <&kp DEL>;
@@ -99,7 +99,7 @@
 #endif
 
     combo_bspc {
-      bindings = <&kp BSPC>;
+      bindings = <&bsdel>;
       key-positions = <RT3 RT4>;
       timeout-ms = <50>;
     };
@@ -121,7 +121,7 @@
         &none     &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P    &none
         &none     &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LGUI  &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &none
         &none     &kp Z     &kp X    &kp C    &kp V      &kp B                            &none    &none                               &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &none
-        &mo 2     &none     &none    &none    &none                    &mo NUMB &kp SPACE &kp LCTRL &kp LALT &kp LSHFT &mo NAVI               &none  &none     &none    &none    &mo 2
+        &mo 2     &none     &none    &none    &none                    &mo NUMB &sptab    &kp LCTRL &kp LALT &kp LSHFT &mo NAVI               &none  &none     &none    &none    &mo 2
       >;
     };
     numb_layer {
